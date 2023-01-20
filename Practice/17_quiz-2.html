@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>연습문제 2</title>
+	<style>
+		form {
+      margin-bottom:30px;
+    }
+    input[type="text"] {
+      width:30px;
+      height:20px;
+      text-align: center;
+    }
+    button {
+      margin-left:10px;
+    }
+    table {
+      width:300px;      
+    }
+    table, td {
+      border:1px solid #ccc;
+      border-collapse: collapse;
+    }
+    td {
+      padding:10px;
+    }
+	</style>
+</head>
+<body>
+	<form>
+		<input type="text" class="row">행
+		<input type="text" class="col">열
+		<button onclick="display(); return false;">작성</button>
+	</form>
+	<div id="content"></div>
+
+	<script>
+
+		function display(){
+
+			let table = document.createElement("table");
+
+			let row_num = document.querySelector('.row').value;
+			let col_num = document.querySelector('.col').value;
+
+			for(let i=0;i<row_num;i++){
+				let tr = document.createElement("tr");
+				table.appendChild(tr);
+
+				for(let j=0;j<col_num;j++){
+					let td = document.createElement("td");
+					let textNode = document.createTextNode(i+","+j);
+					tr.appendChild(td);
+					td.appendChild(textNode);
+				}
+			}
+			let newTable = document.querySelector("#content");
+			newTable.appendChild(table);
+		}
+		
+		// for(let i=0;i<row;i++){
+		// 	let tr = document.createElement("tr");
+		// 	table.appendChild(tr)
+		// }
+		// for(let i=0;i<5;i++){
+		// 	let tr = document.createElement("tr");
+		// 	table.appendChild(tr)
+		// }
+		// let td = document.createElement("td");
+		
+	</script>
+</body>
+</html>
